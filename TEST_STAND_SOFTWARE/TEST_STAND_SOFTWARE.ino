@@ -12,7 +12,6 @@
 #define HARDWARE_LED 6 //shows that hardware powered on 
 #define launchoverCMD 1 //manuallaunch over pin 
 
-//added to git
 
 //example set up from radiolib
 // NSS pin:   10
@@ -34,7 +33,7 @@ File dataFile;
 
 //data variables 
 float forceRaw;
-String 
+String FC_Data;
 
 
 
@@ -164,7 +163,6 @@ void loop()
   endTime=micros();
   elapsedTime=endTime-startTime;
 
-
   if (elapsedTime>=10000000) //after 10 seconds burnout time 
   {
       currentState = STATE_SHUTDOWN; //changes to shut down state
@@ -181,8 +179,6 @@ void loop()
 
   delay(loopdelay); //time in between each data log CHANGE
 }
-
-
 
 
 void logData(float forceRaw, String FC_data, int mosfetState,int currentState) 
@@ -220,9 +216,7 @@ String readtelementry()
       
   }
   return "";
-} 
-
-
+}
 
 float readForceSensor() //load cell sensor data
 {
@@ -230,8 +224,6 @@ float readForceSensor() //load cell sensor data
   float force = (rawValue/ 4096.0) * 3.3; 
   return force;
 }
-
-
 
 
 
